@@ -18,8 +18,12 @@ async function getAllBlogs() {
     };
   });
 
+  const orderedBlogs = blogs.sort((a, b) => {
+    return b.frontmatter.id - a.frontmatter.id;
+  });
+
   return {
-    blogs: blogs
+    blogs: orderedBlogs
   };
 }
 
@@ -27,14 +31,19 @@ const Blog = async () => {
   const {blogs} = await getAllBlogs();
   return (
     <>
-      <h1>Blog page</h1>
-      {blogs.map((blog, index) =>
-        <div key={index}>
-          <h2>{blog.frontmatter.title}</h2>
-          <p>{blog.frontmatter.date}</p>
-          <Link href={`/blog/${blog.slug}`}>Read More</Link>
+      <div>
+        <div>
+          <h1>Blog page</h1>
+          <p>Show you interesting posts!</p>
+          {blogs.map((blog, index) =>
+            <div key={index}>
+              <h2>{blog.frontmatter.title}</h2>
+              <p>{blog.frontmatter.date}</p>
+              <Link href={`/blog/${blog.slug}`}>Read More</Link>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 };
