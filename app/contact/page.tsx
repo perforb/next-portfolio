@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Contact",
+  description: "This is contact page."
+};
+
+
 const Contact = () => {
   return (
     <>
@@ -5,7 +11,10 @@ const Contact = () => {
         <div className="container">
           <h1>Contact</h1>
           <p>お気軽にご連絡ください</p>
-          <form>
+          <form
+            action="https://formspree.io/f/mqkvvzyq"
+            method="POST"
+          >
             <label htmlFor="name">お名前</label>
             <input type="text" name="name" id="name" required/>
             <label htmlFor="email">メールアドレス</label>

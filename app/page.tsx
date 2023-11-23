@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import heroPic from "../public/images/index-hero.jpg";
-import profilePic from "../public/images/profile.jpg";
+import heroPic from "@/public/images/index-hero.jpg";
+import profilePic from "@/public/images/profile.jpg";
+
+export const metadata = {
+  title: "X",
+  description: "X's portfolio site"
+};
 
 const Index = () => {
   return (
